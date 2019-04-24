@@ -43,8 +43,8 @@ def main(M,N, Du, Dv, F, K):
         lu += (Du*Lap.dot(lu) - uvv +  F *(1-lu))
         lv += (Dv*Lap.dot(lv) + uvv - (F+K)*lv  )
 
-        if i % 100 == 0:
-            filename = "./data/gs_{:02d}.png".format(i//100)
+        if i % 1000 == 0:
+            filename = "./data/gs_{:02d}.png".format(i//1000)
             print(filename)
             plt.imshow(lu.reshape((L,L)), interpolation='bicubic',cmap=plt.cm.jet)
             plt.savefig(filename)
@@ -87,10 +87,16 @@ if __name__ == "__main__":
 #    Constances
     M=256
     N=32000
-    Du=0.16
-    Dv=0.08
-    F=0.16
-    k=0.08
+    Du=0.14
+    Dv=0.06
+    F=0.035
+    k=0.065
+    
+#    0.14, 0.06, 0.035, 0.065
+#    0.16, 0.08, 0.060, 0.062 
+#    0.12, 0.08, 0.020, 0.050
+#    0.16, 0.08, 0.035, 0.060
+    
     
 #    Calculate Du, Dx (No need)
     
